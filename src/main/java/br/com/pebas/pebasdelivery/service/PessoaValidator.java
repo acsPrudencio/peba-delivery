@@ -19,6 +19,6 @@ public class PessoaValidator {
 
     public PessoaDto findById(UUID id){
         Optional<Pessoa> person = pessoaRepository.findById(id);
-        return person.isPresent()?new PessoaDto(person.get().getNome(), person.get().getCpfCnpj(), person.get().getEmail(), person.get().getTelefone()):null;
+        return person.isPresent()?new PessoaDto(person.get().getId(), person.get().getNome(), person.get().getCpfCnpj(), person.get().getEmail(), person.get().getTelefone()):null;
     }
 }
