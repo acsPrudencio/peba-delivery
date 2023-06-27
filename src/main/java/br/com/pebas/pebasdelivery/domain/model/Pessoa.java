@@ -3,15 +3,20 @@ package br.com.pebas.pebasdelivery.domain.model;
 import br.com.pebas.pebasdelivery.domain.enums.GeneroEnum;
 import br.com.pebas.pebasdelivery.domain.form.PessoaForm;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "pessoa")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -28,6 +33,10 @@ public class Pessoa {
     private String email;
     @Column(length = 20, name = "telefone")
     private String telefone;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     public Pessoa newPerson(PessoaForm form) {
         Pessoa pessoa = new Pessoa();

@@ -2,7 +2,6 @@ package br.com.pebas.pebasdelivery.service.validators;
 
 import br.com.caelum.stella.ValidationMessage;
 import br.com.caelum.stella.validation.CPFValidator;
-import br.com.pebas.pebasdelivery.domain.dto.PessoaDto;
 import br.com.pebas.pebasdelivery.domain.model.Pessoa;
 import br.com.pebas.pebasdelivery.repository.PessoaRepository;
 import br.com.pebas.pebasdelivery.repository.jdbc.PessoaTempleteService;
@@ -24,9 +23,9 @@ public class PessoaValidator {
     @Autowired
     PessoaTempleteService pessoaTempleteService;
 
-    public PessoaDto findById(UUID id){
+    public Pessoa findById(UUID id){
         Optional<Pessoa> person = pessoaRepository.findById(id);
-        return person.map(pessoa -> new PessoaDto(pessoa.getId(), pessoa.getNome(), pessoa.getCpf(), pessoa.getEmail(), pessoa.getTelefone())).orElse(null);
+        return person.orElse(null);
     }
 
     public static void validCPF(String cpf) {
