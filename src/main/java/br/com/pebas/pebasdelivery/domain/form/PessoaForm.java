@@ -1,6 +1,6 @@
-package br.com.peba.pebadelivery.domain.form;
+package br.com.pebas.pebasdelivery.domain.form;
 
-import br.com.peba.pebadelivery.domain.enums.GeneroEnum;
+import br.com.pebas.pebasdelivery.domain.enums.GeneroEnum;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NonNull;

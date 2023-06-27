@@ -1,6 +1,7 @@
-package br.com.peba.pebadelivery.domain.model;
+package br.com.pebas.pebasdelivery.domain.model;
 
-import br.com.peba.pebadelivery.domain.enums.GeneroEnum;
+import br.com.pebas.pebasdelivery.domain.enums.GeneroEnum;
+import br.com.pebas.pebasdelivery.domain.form.PessoaForm;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,5 +28,15 @@ public class Pessoa {
     private String email;
     @Column(length = 20, name = "telefone")
     private String telefone;
+
+    public Pessoa newPerson(PessoaForm form) {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome(form.getNome());
+        pessoa.setCpfCnpj(form.getCpfCnpj());
+        pessoa.setGeneroEnum(form.getGeneroEnum());
+        pessoa.setEmail(form.getEmail());
+        pessoa.setTelefone(form.getTelefone());
+        return pessoa;
+    }
 
 }

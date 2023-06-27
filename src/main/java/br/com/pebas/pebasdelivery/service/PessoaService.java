@@ -1,9 +1,9 @@
-package br.com.peba.pebadelivery.service;
+package br.com.pebas.pebasdelivery.service;
 
-import br.com.peba.pebadelivery.domain.dto.PessoaDto;
-import br.com.peba.pebadelivery.domain.form.PessoaForm;
-import br.com.peba.pebadelivery.domain.model.Pessoa;
-import br.com.peba.pebadelivery.repository.PessoaRepository;
+import br.com.pebas.pebasdelivery.domain.dto.PessoaDto;
+import br.com.pebas.pebasdelivery.domain.form.PessoaForm;
+import br.com.pebas.pebasdelivery.domain.model.Pessoa;
+import br.com.pebas.pebasdelivery.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +18,11 @@ public class PessoaService {
     }
 
     public PessoaDto registeringPerson(PessoaForm form) {
-        Pessoa person = newPerson(form);
+        Pessoa person = new Pessoa();
+        person = person.newPerson(form);
         Pessoa personSaved = pessoaRepository.save(person);
         return new PessoaDto(personSaved.getNome(), person.getCpfCnpj(), person.getEmail(), person.getTelefone());
     }
 
-    private Pessoa newPerson(PessoaForm form) {
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome(form.getNome());
-        pessoa.setCpfCnpj(form.getCpfCnpj());
-        pessoa.setGeneroEnum(form.getGeneroEnum());
-        pessoa.setEmail(form.getEmail());
-        pessoa.setTelefone(form.getTelefone());
-        return pessoa;
-    }
+
 }

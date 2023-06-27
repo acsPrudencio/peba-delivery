@@ -1,6 +1,6 @@
-package br.com.peba.pebadelivery.repository;
+package br.com.pebas.pebasdelivery.repository;
 
-import br.com.peba.pebadelivery.domain.model.Pessoa;
+import br.com.pebas.pebasdelivery.domain.model.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
