@@ -8,13 +8,13 @@ import java.util.UUID;
 public class PessoaDto {
     private UUID id;
     private String nome;
-    private String cpfCnpj;
+    private String cpf;
     private String email;
     private String telefone;
-    public PessoaDto(UUID id, String nome, String cpfCnpj, String email, String telefone) {
+    public PessoaDto(UUID id, String nome, String cpf, String email, String telefone) {
         this.id = id;
         this.nome = nome;
-        this.cpfCnpj = cpfCnpj;
+        this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
     }

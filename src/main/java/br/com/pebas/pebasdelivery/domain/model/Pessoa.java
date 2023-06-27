@@ -19,8 +19,8 @@ public class Pessoa {
     private UUID id;
     @Column(length = 100, name = "nome", nullable = false)
     private String nome;
-    @Column(length = 14, name = "cpf_cnpj", nullable = false)
-    private String cpfCnpj;
+    @Column(length = 14, name = "cpf", nullable = false)
+    private String cpf;
     @Enumerated(EnumType.ORDINAL)
     @Column(length = 10, name = "genero", nullable = false)
     private GeneroEnum generoEnum;
@@ -32,7 +32,7 @@ public class Pessoa {
     public Pessoa newPerson(PessoaForm form) {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(form.getNome());
-        pessoa.setCpfCnpj(form.getCpfCnpj());
+        pessoa.setCpf(form.getCpf());
         pessoa.setGeneroEnum(form.getGeneroEnum());
         pessoa.setEmail(form.getEmail());
         pessoa.setTelefone(form.getTelefone());
