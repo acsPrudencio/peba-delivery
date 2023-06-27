@@ -8,14 +8,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
+
 @Service
 public class PessoaService {
 
     @Autowired
     PessoaRepository pessoaRepository;
+    @Autowired
+    PessoaValidator pessoaValidator;
     public List<PessoaDto> findAll() {
         return pessoaRepository.findAll().stream().map(p -> new PessoaDto(p.getNome(), p.getCpfCnpj(), p.getEmail(), p.getTelefone())).toList();
     }
+    public PessoaDto findById(UUID id) {
+        return pessoaValidator.findById(id);
+    }
+
 
     public PessoaDto registeringPerson(PessoaForm form) {
         Pessoa person = new Pessoa();
