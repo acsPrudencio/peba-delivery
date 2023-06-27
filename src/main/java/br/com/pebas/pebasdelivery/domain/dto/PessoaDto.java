@@ -1,4 +1,4 @@
-package br.com.peba.pebadelivery.domain.dto;
+package br.com.pebas.pebasdelivery.domain.dto;
 
 import lombok.Data;
 

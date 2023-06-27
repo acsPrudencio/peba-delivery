@@ -1,4 +1,4 @@
-package br.com.peba.pebadelivery.domain.enums;
+package br.com.pebas.pebasdelivery.domain.enums;
 
 import jakarta.validation.ValidationException;
 import lombok.AllArgsConstructor;

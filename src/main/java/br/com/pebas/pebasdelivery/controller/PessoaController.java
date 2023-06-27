@@ -1,8 +1,8 @@
-package br.com.peba.pebadelivery.controller;
+package br.com.pebas.pebasdelivery.controller;
 
-import br.com.peba.pebadelivery.domain.dto.PessoaDto;
-import br.com.peba.pebadelivery.domain.form.PessoaForm;
-import br.com.peba.pebadelivery.service.PessoaService;
+import br.com.pebas.pebasdelivery.domain.dto.PessoaDto;
+import br.com.pebas.pebasdelivery.domain.form.PessoaForm;
+import br.com.pebas.pebasdelivery.service.PessoaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,6 +22,11 @@ public class PessoaController {
     @GetMapping
     public ResponseEntity<List<PessoaDto>> findAll(){
         return ResponseEntity.ok(pessoaService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PessoaDto> findById(@RequestParam UUID id){
+        return ResponseEntity.ok(pessoaService.findById(id));
     }
 
     @PostMapping
